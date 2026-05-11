@@ -8,7 +8,7 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 
 def generate_prompt(user_idea):
-    url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + GEMINI_API_KEY
+url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + GEMINI_API_KEY
     payload = {"contents": [{"parts": [{"text": "You are an AI image prompt expert. Generate professional prompts for Midjourney, DALLE, and Ideogram based on this idea: " + user_idea}]}]}
     response = requests.post(url, json=payload)
     data = response.json()
